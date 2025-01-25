@@ -1,0 +1,19 @@
+name: PR CI
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+    push:
+      branches:
+        - "main"
+
+permissions:
+    contents: read # required to checkout the code from the repo
+    pull-requests: read
+
+jobs:
+    pre-commit:
+      uses: ./.github/workflows/pre-commit.yaml
+      with:
+        python_version: 3.12
+        uv_version: 0.5.24
+
