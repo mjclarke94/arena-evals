@@ -1,0 +1,32 @@
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "W",
+    "SIM",
+    "UP",
+    "C4",
+    "RUF",
+    "PLC",
+    "PLE",
+    "PLR",
+    "TID",
+    "B018",
+    "NPY",
+    "T20",
+    "ERA",
+    "ARG",
+]
+ignore = ["E501","E711", "E712", "PLR0913", "RUF015"]
+ignore-init-module-imports = true
+
+[lint.isort]
+split-on-trailing-comma = true
+force-wrap-aliases = true
+
+[format]
+line-ending = "lf"
