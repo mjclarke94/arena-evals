@@ -1,0 +1,14 @@
+[project]
+name = "arena-evals"
+version = "0.1.0"
+description = "Worked solutions to ARENA Chapter 3"
+readme = "README.md"
+authors = [
+    { name = "Matt Clarke", email = "mattjclarke94@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
