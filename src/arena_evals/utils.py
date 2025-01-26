@@ -1,15 +1,19 @@
 import time
 from collections.abc import Callable
+from typing import ParamSpec, TypeVar
 
 from openai._exceptions import RateLimitError
 
+P = ParamSpec("P")
+T = TypeVar("T")
+
 
 def retry_with_exponential_backoff(
-    func,
+    func: Callable[P, T],
     max_retries: int = 20,
     initial_sleep_time: float = 1.0,
     backoff_factor: float = 1.5,
-) -> Callable:
+) -> Callable[P, T]:
     """
     Retry a function with exponential backoff.
 
@@ -34,7 +38,7 @@ def retry_with_exponential_backoff(
         are re-raised immediately.
     """
 
-    def wrapper(*args, **kwargs):
+    def wrapper(*args, **kwargs) -> T:
         sleep_time = initial_sleep_time
 
         for _ in range(max_retries):
