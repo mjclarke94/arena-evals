@@ -17,11 +17,10 @@ select = [
     "TID",
     "B018",
     "NPY",
-    "T20",
-    "ERA",
+    # "T20",
     "ARG",
 ]
-ignore = ["E501","E711", "E712", "PLR0913", "RUF015"]
+ignore = ["E501","E711", "E712", "PLR0913", "RUF015", "B018"]
 ignore-init-module-imports = true
 
 [lint.isort]
