@@ -11,6 +11,24 @@ wheels = [
 ]
 
 [[package]]
+name = "anthropic"
+version = "0.45.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "jiter" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c6/d4/51d5ed9159e53d51012c7ffa2b578f1c76cc9bd2d0646695604a20129b3c/anthropic-0.45.0.tar.gz", hash = "sha256:4e8541dc355332090bfc51b84549c19b649a13a23dbd6bd68e1d012e08551025", size = 200523 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/63/a0/f8ad781d83ccd8184692ace3c557294b1ece7c0b071f912300276b7cdb4a/anthropic-0.45.0-py3-none-any.whl", hash = "sha256:f36aff71d2c232945e64d1970be68a91b05a2ef5e3afa6c1ff195c3303a95ad3", size = 222255 },
+]
+
+[[package]]
 name = "anyio"
 version = "4.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -29,6 +47,7 @@ name = "arena-evals"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "anthropic" },
     { name = "httpx" },
     { name = "marimo", extra = ["sql"] },
     { name = "openai" },
@@ -40,6 +59,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "anthropic", specifier = ">=0.45.0" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "marimo", extras = ["sql"], specifier = ">=0.10.17" },
     { name = "openai", specifier = ">=1.60.1" },

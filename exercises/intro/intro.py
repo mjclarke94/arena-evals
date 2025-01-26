@@ -8,16 +8,16 @@ app = marimo.App(width="full")
 def _():
     import marimo as mo
 
-    from arena_evals.response import OpenAIWrapperFactory
+    from arena_evals.response import LLMWrapperFactory
 
-    return OpenAIWrapperFactory, mo
+    return LLMWrapperFactory, mo
 
 
 @app.cell
-def _(OpenAIWrapperFactory):
-    oaiwf = OpenAIWrapperFactory()
-    oai = oaiwf()
-    return oai, oaiwf
+def _(LLMWrapperFactory):
+    wf = LLMWrapperFactory(default_model="claude-3-5-sonnet-20240620")
+    llm_wrapper = wf()
+    return llm_wrapper, wf
 
 
 @app.cell
@@ -30,8 +30,18 @@ def _():
 
 
 @app.cell
-def _(messages, oai):
-    oai.generate_response(messages)
+def _(llm_wrapper, messages):
+    llm_wrapper.generate_response(messages)
+
+
+@app.cell
+def _(llm_wrapper, messages):
+    llm_wrapper.generate_response(messages, model="gpt-4o-mini")
+
+
+@app.cell
+def _():
+    return
 
 
 if __name__ == "__main__":

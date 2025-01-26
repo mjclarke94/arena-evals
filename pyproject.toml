@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "anthropic>=0.45.0",
     "httpx>=0.28.1",
     "marimo[sql]>=0.10.17",
     "openai>=1.60.1",
